@@ -1,15 +1,5 @@
-# Docker Compose Complete Lab Guide
+# Docker Compose 
 
-## Objective
-
-Learn:
-- What Docker Compose is
-- Why Docker Compose is used
-- How to deploy multi-container applications
-- How containers communicate using Compose
-- How volumes and networks work automatically
-
----
 
 # What is Docker Compose?
 
