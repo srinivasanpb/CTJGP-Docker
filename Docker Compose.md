@@ -115,7 +115,6 @@ apt install python3-pip -y
 pip3 install docker-compose
 ```
 
----
 
 # Verify Installation
 
@@ -129,7 +128,6 @@ Expected Output:
 docker-compose version 1.x.x
 ```
 
----
 
 # Task 2 — Create Project Directory
 
@@ -145,7 +143,7 @@ This directory will contain:
 - docker-compose.yaml
 - Application configuration
 
----
+
 
 ## Move into directory
 
@@ -153,7 +151,7 @@ This directory will contain:
 cd wordpress
 ```
 
----
+
 
 # Task 3 — Create Compose File
 
@@ -163,7 +161,6 @@ cd wordpress
 vi docker-compose.yaml
 ```
 
----
 
 # Paste the Following Configuration
 
@@ -217,7 +214,7 @@ volumes:
 
 # Theory of Compose File
 
-## version
+**version**
 
 ```yaml
 version: '3.3'
@@ -225,9 +222,7 @@ version: '3.3'
 
 Defines Compose file format version.
 
----
-
-## services
+**services**
 
 ```yaml
 services:
@@ -239,9 +234,7 @@ Here:
 - db → MySQL container
 - wordpress → WordPress container
 
----
-
-## image
+**image**
 
 ```yaml
 image: mysql:5.7
@@ -249,9 +242,7 @@ image: mysql:5.7
 
 Pulls image from Docker Hub.
 
----
-
-## volumes
+**volumes**
 
 ```yaml
 volumes:
@@ -262,9 +253,7 @@ Purpose:
 - Data persistence
 - Database data survives container deletion
 
----
-
-## environment
+**environment**
 
 Used to pass environment variables into container.
 
@@ -276,9 +265,7 @@ MYSQL_ROOT_PASSWORD
 
 sets MySQL root password.
 
----
-
-## depends_on
+**depends_on**
 
 ```yaml
 depends_on:
@@ -287,9 +274,7 @@ depends_on:
 
 Ensures WordPress starts after MySQL container.
 
----
-
-## ports
+**ports**
 
 ```yaml
 ports:
@@ -305,9 +290,7 @@ Format:
 HOST:CONTAINER
 ```
 
----
-
-## restart
+**restart**
 
 ```yaml
 restart: always
@@ -317,7 +300,6 @@ Automatically restarts container if:
 - Container crashes
 - Server reboots
 
----
 
 # Task 4 — Start Application
 
@@ -327,85 +309,55 @@ Automatically restarts container if:
 docker-compose up -d
 ```
 
----
+### Explanation
 
-# Explanation
-
-## up
+**up**
 
 Creates and starts:
 - Containers
 - Networks
 - Volumes
 
-## -d
+**-d**
 
 Runs containers in detached/background mode.
 
----
-
-# Expected Activities
-
-Docker Compose will:
-1. Pull images
-2. Create network
-3. Create volume
-4. Create containers
-5. Start services
-
----
 
 # Task 5 — Verify Containers
 
-## Check Compose containers
+**Check Compose containers**
 
 ```bash
 docker-compose ps
 ```
-
----
-
-# Check running containers
+**Check running containers**
 
 ```bash
 docker container ls
 ```
 
----
-
-# Check networks
+**Check networks**
 
 ```bash
 docker network ls
 ```
-
-Expected:
-- A new compose network
-
-Example:
-
-```text
-wordpress_default
-```
-
----
-
-# Check volumes
+**Check volumes**
 
 ```bash
 docker volume ls
 ```
 
-Expected:
-- Named volume
+**Check Logs**
 
-Example:
-
-```text
-wordpress_db_data
+```bash
+docker-compose logs
 ```
 
----
+For specific container:
+
+```bash
+docker-compose logs wordpress
+```
 
 # Task 6 — Access WordPress
 
@@ -424,17 +376,13 @@ http://localhost
 You should see:
 - WordPress setup page
 
----
 
 # Task 7 — Stop Application
 
 ```bash
 docker-compose down
 ```
-
----
-
-# Explanation
+**Explanation**
 
 This command:
 - Stops containers
@@ -443,9 +391,7 @@ This command:
 
 But volume remains safe.
 
----
-
-# Remove Everything Including Volume
+** Remove Everything Including Volume**
 
 ```bash
 docker-compose down -v
@@ -477,35 +423,6 @@ docker-compose down -v
 | Single container | Multiple containers |
 | Manual commands | YAML automation |
 
----
-
-## What is depends_on?
-
-Controls container startup dependency.
-
-
-## Why use volumes?
-
-For persistent storage.
-
-
-## What network does Compose create?
-
-Default bridge network automatically.
-
----
-
-# Check Logs
-
-```bash
-docker-compose logs
-```
-
-For specific container:
-
-```bash
-docker-compose logs wordpress
-```
 
 ---
 
