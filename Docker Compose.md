@@ -91,32 +91,30 @@ docker-compose --version
 
 # Task 1 — Install Docker Compose
 
-## Ubuntu Installation
+**Ubuntu Installation**
 
 ```bash
 apt update -y
 ```
 
-## Install Python3
+**Install Python3**
 
 ```bash
 apt install python3 -y
 ```
 
-## Install pip
+**Install pip**
 
 ```bash
 apt install python3-pip -y
 ```
 
-## Install Docker Compose
+**Install Docker Compose**
 
 ```bash
 pip3 install docker-compose
 ```
-
-
-# Verify Installation
+**Verify Installation**
 
 ```bash
 docker-compose --version
@@ -131,38 +129,32 @@ docker-compose version 1.x.x
 
 # Task 2 — Create Project Directory
 
-## Create directory
+**Create directory**
 
 ```bash
 mkdir wordpress
 ```
 
-### Explanation
+**Explanation**
 
 This directory will contain:
 - docker-compose.yaml
 - Application configuration
 
-
-
-## Move into directory
+**Move into directory**
 
 ```bash
 cd wordpress
 ```
 
-
-
 # Task 3 — Create Compose File
 
-## Create YAML file
+**Create YAML file**
 
 ```bash
 vi docker-compose.yaml
 ```
-
-
-# Paste the Following Configuration
+**Paste the Following Configuration**
 
 ```yaml
 version: '3.3'
